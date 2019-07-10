@@ -1,5 +1,5 @@
 (function () {
-    const iAGRESSION = 20
+    const iAGRESSION = 10
 
     var canvas = document.getElementById("canv");
     var ctx = canvas.getContext("2d");
@@ -30,8 +30,8 @@
     }
 
     function randomizeDirection(iIndex) {
-        elements[iIndex].vDirection.x = (Math.random() * 2) - 1;
-        elements[iIndex].vDirection.y = (Math.random() * 2) - 1;
+        elements[iIndex].vDirection.x = Math.round(Math.random() * 2) - 1;
+        elements[iIndex].vDirection.y = Math.round(Math.random() * 2) - 1;
     }
 
     function borderBlock(iIndex, iAgression) {
@@ -61,8 +61,8 @@
                     x: 0,
                     y: 0
                 },
-                iSize: 1,
-                sColor: i / 2 % 1 ? '#000000' : '#FFFFFF'
+                iSize: iAGRESSION,
+                sColor: getRandomColor() + '01'
             })
         }
     }
@@ -78,7 +78,7 @@
     }
 
 
-    createElements(100);
+    createElements(1000);
     /*  10ms Gametick */
     setInterval(main, 1);
 })()
